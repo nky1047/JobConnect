@@ -4,9 +4,17 @@ import java.util.Arrays;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="profiles")
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
+
+@Entity
 public class Profiles {
-	private String jcId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
+	private long JBid;
 	private String name;
 	private String currentCompany;
 	private String yoe;
@@ -15,11 +23,12 @@ public class Profiles {
 	
 	
 	
-	public String getJcId() {
-		return jcId;
+	
+	public long getJBid() {
+		return JBid;
 	}
-	public void setJcId(String jcId) {
-		this.jcId = jcId;
+	public void setJBid(long jBid) {
+		JBid = jBid;
 	}
 	public String getDesignation() {
 		return designation;
@@ -51,13 +60,15 @@ public class Profiles {
 	public void setSkills(String[] skills) {
 		this.skills = skills;
 	}
+	
 	public Profiles() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Profiles(String jcId, String name, String currentCompany, String yoe, String[] skills, String designation) {
+	
+	public Profiles(long jBid, String name, String currentCompany, String yoe, String[] skills, String designation) {
 		super();
-		this.jcId = jcId;
+		JBid = jBid;
 		this.name = name;
 		this.currentCompany = currentCompany;
 		this.yoe = yoe;
@@ -66,9 +77,11 @@ public class Profiles {
 	}
 	@Override
 	public String toString() {
-		return "Profiles [jcId=" + jcId + ", name=" + name + ", currentCompany=" + currentCompany + ", yoe=" + yoe
+		return "Profiles [JBid=" + JBid + ", name=" + name + ", currentCompany=" + currentCompany + ", yoe=" + yoe
 				+ ", skills=" + Arrays.toString(skills) + ", designation=" + designation + "]";
 	}
+	
+	
 	
 	
 	
