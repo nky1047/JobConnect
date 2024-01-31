@@ -2,9 +2,10 @@ package com.nitin.jobConnect.Reporsitory;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.nitin.jobConnect.POJOs.Profiles;
+
+import com.nitin.jobConnect.POJOs.Task;
 
 @Repository
-public interface ProfilesRepo extends JpaRepository<Profiles, Long> {
+public interface TaskRepo extends JpaRepository<Task, Long> {
 
 }
